@@ -58,9 +58,8 @@ router.get('/transaction/edit/:itemId',
   async (req, res, next) => {
     console.log("inside /tanaction/edit/:itemId");
     const item = await TransactionItem.findOne({_id:req.params.itemId});
-    //res.render('edit', { item });
-    res.locals.item = item;
-    res.render('edit');
+    item.type = "transaction";
+    res.render('edit', { item });
 });
 
 router.post('/transaction/updateTransaction',

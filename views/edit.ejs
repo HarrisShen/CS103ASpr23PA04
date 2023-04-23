@@ -1,20 +1,44 @@
 <pre>
-    <%= JSON.stringify(item,null,5) %>
+  <%= JSON.stringify(item,null,4) %>
 </pre>
-<form method="post" action="/todo/updateTodoItem">
+
+<% if (item.type === 'todo') { %>
+  <form method="post" action="/todo/updateTodoItem">
     <input type="hidden" name="itemId" value="<%= item._id %>">
     new item: 
     <input type="text" 
-           value="<%= item.item %>"
-           name="item"><br>
+        value="<%= item.item %>"
+        name="item"><br>
     priority: <select name="priority">
-       <% [1,2,3,4,5].map(p => { %>
+    <% [1,2,3,4,5].map(p => { %>
         <option 
-              <%= p==item.priority?'selected':'' %>>
-              <%= p %>
-       </option>
-       <% }) %>
+            <%= p==item.priority?'selected':'' %>>
+            <%= p %>
+    </option>
+    <% }) %>
     </select>
     <br>
     <input type="submit" value="store">
-</form>
+  </form>
+<% } else if (item.type === 'transaction') { %>
+  <form method="post" action="/transaction/updateTransaction">
+    <input type="hidden" name="itemId" value="<%= item._id %>">
+    description: 
+    <input type="text" 
+        value="<%= item.description %>"
+        name="description"><br>
+    amount: 
+    <input type="text" 
+        value="<%= item.amount %>"
+        name="amount"><br>
+    category: 
+    <input type="text" 
+        value="<%= item.category %>"
+        name="category"><br>
+    date: 
+    <input type="text" 
+        value="<%= item.date.toLocaleDateString('en-US', {year:'numeric',month:'2-digit',day:'2-digit'}) %>"
+        name="date"><br>
+    <input type="submit" value="store">
+  </form>
+<% } %>

@@ -2,23 +2,23 @@
 <h1> Transactions for <%= user.username %> </h1>
 
 <p> Here is your recorded transactions! </p>
-<table class="table table-striped table-hover">
-    <tr>
-        <th> Description </th>
-        <th> Amount </th>
-        <th> Category </th>
-        <th> Date </th>
-        <th> Delete </th>
-        <th> Edit </th>
-    </tr>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+      <th> Description </th>
+      <th> Amount </th>
+      <th> Category </th>
+      <th> Date </th>
+      <th> Delete </th>
+      <th> Edit </th>
+    </thead>
     <% items.forEach(item => { %>
       <tr>
-          <td> <%= item.description %> </td>
-          <td> <%= item.amount %> </td>
-          <td> <%= item.category %> </td>
-          <td> <%= item.date.toDateString() %> </td>
-          <td> <a href="/transaction/remove/<%=item._id %>"> <i class="bi bi-trash"></i> </a> </td>
-          <td> <a href="/transaction/edit/<%=item._id %>"> <i class="bi bi-pencil-square"></i> </a> </td>
+        <td> <%= item.description %> </td>
+        <td> <%= item.amount %> </td>
+        <td> <%= item.category %> </td>
+        <td> <%= item.date.toDateString() %> </td>
+        <td> <a href="/transaction/remove/<%=item._id %>"> <i class="bi bi-trash"></i> </a> </td>
+        <td> <a href="/transaction/edit/<%=item._id %>"> <i class="bi bi-pencil-square"></i> </a> </td>
       </tr>
     <% }) %>
 </table>
