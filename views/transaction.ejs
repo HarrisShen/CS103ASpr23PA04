@@ -2,6 +2,15 @@
 <h1> Transactions for <%= user.username %> </h1>
 
 <p> Here is your recorded transactions! </p>
+
+<div class="col mb-2">
+  <a href="/transaction/byCategory" class="btn btn-primary"> group by category </a>
+  <a href="?sortBy=category" class="btn btn-primary"> sort by category </a>
+  <a href="?sortBy=amount" class="btn btn-primary"> sort by amount </a>
+  <a href="?sortBy=description" class="btn btn-primary"> sort by description </a>
+  <a href="?sortBy=date" class="btn btn-primary"> sort by date </a>
+</div>
+
 <table class="table table-striped table-hover table-bordered">
     <thead>
       <th> Description </th>
