@@ -1,0 +1,10 @@
+.DS_Store
+*~
+package-lock*
+node_modules
+secret*
+*data*
+__pycache__
+.ipynb_checkpoints
+.pytest_cache
+startup.sh
