@@ -52,6 +52,7 @@ router.post('/transaction',
     res.redirect('/transaction');
 });
 
+// remove the value associated to the key
 router.get('/transaction/remove/:itemId',
   isLoggedIn,
   async (req, res, next) => {
@@ -60,6 +61,7 @@ router.get('/transaction/remove/:itemId',
     res.redirect('/transaction');
 });
 
+// edit the value associated to the key
 router.get('/transaction/edit/:itemId',
   isLoggedIn,
   async (req, res, next) => {
